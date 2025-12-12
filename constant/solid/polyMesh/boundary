@@ -1,0 +1,98 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  dev
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/solid/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+6
+(
+    atmosphere
+    {
+        type            patch;
+        nFaces          19236;
+        startFace       601892;
+    }
+    boundSymmetry
+    {
+        type            symmetry;
+        inGroups        List<word> 1(symmetry);
+        nFaces          3292;
+        startFace       621128;
+    }
+    solid_to_solid2
+    {
+        type            mappedWall;
+        inGroups        List<word> 
+2
+(
+wall
+mapped
+)
+;
+        nFaces          8;
+        startFace       624420;
+        neighbourRegion solid2;
+        neighbourPatch  solid2_to_solid;
+        transformType   none;
+    }
+    solid_to_solid1
+    {
+        type            mappedWall;
+        inGroups        List<word> 
+2
+(
+wall
+mapped
+)
+;
+        nFaces          11;
+        startFace       624428;
+        neighbourRegion solid1;
+        neighbourPatch  solid1_to_solid;
+        transformType   none;
+    }
+    solid_to_solid3
+    {
+        type            mappedWall;
+        inGroups        List<word> 
+2
+(
+wall
+mapped
+)
+;
+        nFaces          6;
+        startFace       624439;
+        neighbourRegion solid3;
+        neighbourPatch  solid3_to_solid;
+        transformType   none;
+    }
+    solid_to_fluid
+    {
+        type            mappedWall;
+        inGroups        List<word> 
+2
+(
+wall
+mapped
+)
+;
+        nFaces          9654;
+        startFace       624445;
+        neighbourRegion fluid;
+        neighbourPatch  fluid_to_solid;
+        transformType   none;
+    }
+)
+
+// ************************************************************************* //

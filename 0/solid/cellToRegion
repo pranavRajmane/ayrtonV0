@@ -1,0 +1,54 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  dev
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       volScalarField;
+    location    "0/solid";
+    object      cellToRegion;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    atmosphere
+    {
+        type            zeroGradient;
+    }
+    boundSymmetry
+    {
+        type            symmetry;
+    }
+    solid_to_solid2
+    {
+        type            extrapolatedCalculated;
+        value           uniform 0;
+    }
+    solid_to_solid1
+    {
+        type            extrapolatedCalculated;
+        value           uniform 0;
+    }
+    solid_to_solid3
+    {
+        type            extrapolatedCalculated;
+        value           uniform 0;
+    }
+    solid_to_fluid
+    {
+        type            extrapolatedCalculated;
+        value           uniform 0;
+    }
+}
+
+
+// ************************************************************************* //

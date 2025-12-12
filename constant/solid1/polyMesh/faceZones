@@ -1,0 +1,47 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  dev
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       faceZoneList;
+    location    "constant/solid1/polyMesh";
+    object      faceZones;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+2
+(
+fluid
+{
+faceLabels      List<label> 0();
+flipMap         List<bool> 0();
+}
+
+solid
+{
+faceLabels      List<label> 
+11
+(
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+)
+;
+flipMap         List<bool> 11{false};
+}
+)
+
+// ************************************************************************* //

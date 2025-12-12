@@ -1,0 +1,44 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  dev
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      createBafflesDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+internalFacesOnly true;
+
+baffles
+{
+    bafflesZone
+    {
+        type        faceZone;
+        zoneName    fluid;
+
+        owner
+        {
+            name        fluid_to_solid;
+            type        mapped;
+            neighbourRegion solid;
+            neighbourPatch solid_to_fluid;
+        }
+
+        neighbour
+        {
+            name        solid_to_fluid;
+            type        mapped;
+            neighbourRegion fluid;
+            neighbourPatch fluid_to_solid;
+        }
+    }
+}
+
+
+// ************************************************************************* //
